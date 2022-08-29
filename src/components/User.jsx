@@ -39,9 +39,11 @@ const User = () => {
 
   const renderPosts = () =>
     userPosts.map((post) => (
-      <Link to={`/posts/${post.id}`}>
-        <img className={"max-w-full"} src={post.img} alt={post.title} />
-      </Link>
+      <div >
+        <Link to={`/posts/${post.id}`}>
+          <img className={"w-64 h-48 mb-3"} src={post.img} alt={post.title} />
+        </Link>
+      </div>
     ));
 
   return (
@@ -65,7 +67,7 @@ const User = () => {
           >{`${userData.posts?.length} Posts`}</p>
         </div>
       </div>
-      <div className={"columns-2"}>
+      <div className={"columns-2 grid-cols-{2} items-center ml-4"}>
         {userPosts.length > 0 ? renderPosts() : "Loading Posts..."}
       </div>
     </section>
